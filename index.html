@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="theme-color" content="#8d6bd1">
+  <title>Per Dayana ♡</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="game">
+    <div class="sky">
+      <div class="sun"></div>
+      <div class="cloud c1"></div><div class="cloud c2"></div><div class="cloud c3"></div>
+      <div class="spark s1">✦</div><div class="spark s2">✧</div><div class="spark s3">✦</div>
+      <div class="heart h1">♥</div><div class="heart h2">♥</div><div class="heart h3">♥</div>
+    </div>
+
+    <!-- START -->
+    <section id="start" class="screen active">
+      <div class="pixel-couple" aria-hidden="true">
+        <div class="person boy"><span class="head">●</span><span class="body"></span></div>
+        <div class="person girl"><span class="head">●</span><span class="body"></span></div>
+        <div class="kiss">♥</div>
+      </div>
+      <p class="eyebrow">UNA PICCOLA AVVENTURA</p>
+      <h1>Per<br><span>Dayana</span> ♡</h1>
+      <p class="subtitle">Ho preparato una cosa solo per te.</p>
+      <button class="pixel-btn" onclick="show('login')">INIZIA</button>
+    </section>
+
+    <!-- PASSWORD -->
+    <section id="login" class="screen">
+      <h2>GUESS THE<br>PASSWORD</h2>
+      <p class="hint">Un codice che conosciamo solo noi.</p>
+      <div id="display" class="display">_ _ _ _</div>
+      <div class="keypad">
+        <button onclick="key('1')">1</button><button onclick="key('2')">2</button><button onclick="key('3')">3</button>
+        <button onclick="key('4')">4</button><button onclick="key('5')">5</button><button onclick="key('6')">6</button>
+        <button onclick="key('7')">7</button><button onclick="key('8')">8</button><button onclick="key('9')">9</button>
+        <button onclick="clearCode()">*</button><button onclick="key('0')">0</button><button onclick="checkCode()">♥</button>
+      </div>
+      <p id="wrong" class="wrong"></p>
+      <button class="back" onclick="show('start')">← indietro</button>
+    </section>
+
+    <!-- GIFTS -->
+    <section id="gifts" class="screen">
+      <h2>SCEGLI<br>UN REGALO</h2>
+      <p class="hint">Non puoi sbagliare. Sono tutti per te.</p>
+      <div class="gifts">
+        <button class="gift" onclick="openGift('letter')">
+          <span class="lid"></span><span class="box">♥</span>
+          <small>LETTERA</small>
+        </button>
+        <button class="gift" onclick="openGift('memory')">
+          <span class="lid"></span><span class="box">★</span>
+          <small>RICORDO</small>
+        </button>
+        <button class="gift" onclick="openGift('music')">
+          <span class="lid"></span><span class="box">♫</span>
+          <small>MUSICA</small>
+        </button>
+      </div>
+      <div class="pet">🐱</div>
+      <p class="pet-text">Il nostro piccolo guardiano ti aspetta.</p>
+    </section>
+
+    <!-- LETTER -->
+    <section id="letter" class="screen">
+      <div class="paper">
+        <div class="paper-pin">♥</div>
+        <p class="letter-title">PER TE, DAYANA</p>
+        <p>Non so se esista un modo perfetto per raccontarti quanto sei importante per me.</p>
+        <p>So però che da quando ci sei tu, anche le giornate normali hanno qualcosa di speciale.</p>
+        <p>Voglio continuare a condividere con te risate, avventure, momenti stupidi e quelli che invece ricorderemo per sempre.</p>
+        <p class="signature">Con amore,<br><strong>Daniele ♡</strong></p>
+      </div>
+      <button class="pixel-btn small" onclick="show('gifts')">TORNA AI REGALI</button>
+    </section>
+
+    <!-- MEMORY -->
+    <section id="memory" class="screen">
+      <h2>IL NOSTRO<br>RICORDO</h2>
+      <div class="photo-frame">
+        <div class="photo-placeholder">
+          <span>♡</span>
+          <p>QUI PUOI METTERE<br>UNA VOSTRA FOTO</p>
+        </div>
+      </div>
+      <p class="hint">Sostituisci il riquadro con una vostra foto.</p>
+      <button class="pixel-btn small" onclick="show('gifts')">INDIETRO</button>
+    </section>
+
+    <!-- MUSIC -->
+    <section id="music" class="screen">
+      <div class="music-disc">♫</div>
+      <h2>UNA CANZONE<br>PER NOI</h2>
+      <p class="hint">Aggiungi il tuo file MP3 nella cartella del sito e chiamalo <b>song.mp3</b>.</p>
+      <audio id="audio" controls preload="metadata">
+        <source src="song.mp3" type="audio/mpeg">
+      </audio>
+      <p class="music-note">La musica parte solo dopo un tuo tocco, per rispettare le regole del browser.</p>
+      <button class="pixel-btn small" onclick="show('gifts')">INDIETRO</button>
+    </section>
+  </main>
+
+  <div id="particles"></div>
+  <script src="script.js"></script>
+</body>
+</html>
