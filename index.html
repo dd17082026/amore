@@ -302,6 +302,13 @@ document.addEventListener("DOMContentLoaded",()=>{
   setTimeout(()=>burst("♥"),500);
 });
 
-</script>
+</script> function wrongHeart(el){
+  el.style.transform = "scale(0.8)";
+  document.getElementById("huntMessage").textContent =
+    "Nope... non è questo ♡";
+  setTimeout(() => {
+    el.style.transform = "";
+  }, 250);
+}
 </body>
 </html>
