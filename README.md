@@ -1,1 +1,55 @@
-# amore
+*{box-sizing:border-box}
+:root{
+  --pink:#ff78ad;--pink2:#ffb3d1;--purple:#7560c6;--purple2:#9b86df;
+  --cream:#fff5df;--ink:#382a50;--paper:#f5dfb2;
+}
+html,body{margin:0;min-height:100%;background:#0e0b18}
+body{font-family:"Press Start 2P",monospace;color:var(--ink);overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+.game{position:relative;min-height:100svh;max-width:900px;margin:auto;overflow:hidden;background:linear-gradient(#8c75d5 0 52%,#f59fbd 75%,#ffd08d 100%)}
+.sky{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.sun{position:absolute;width:170px;height:170px;border-radius:50%;background:#ffe7b2;right:-45px;top:26%;box-shadow:0 0 35px #ffe7b2aa}
+.cloud{position:absolute;background:#fff9f2;border-radius:50%;filter:drop-shadow(0 8px 0 #c7b9e7);opacity:.95}
+.c1{width:220px;height:55px;left:-50px;top:14%}.c2{width:270px;height:70px;right:-80px;top:47%}.c3{width:190px;height:50px;left:15%;bottom:12%}
+.spark{position:absolute;color:#fff;font-size:20px;animation:twinkle 1.8s infinite alternate}.s1{left:14%;top:23%}.s2{right:20%;top:16%;animation-delay:.5s}.s3{left:72%;top:61%;animation-delay:1s}
+.heart{position:absolute;color:#ff6d9f;opacity:.8;animation:float 4s infinite ease-in-out}.h1{left:12%;top:58%}.h2{right:13%;top:34%;animation-delay:1s}.h3{left:82%;top:72%;animation-delay:2s}
+.screen{position:relative;z-index:2;min-height:100svh;padding:7vh 7vw 9vh;display:none;flex-direction:column;align-items:center;justify-content:center;text-align:center}
+.screen.active{display:flex;animation:fade .45s ease}
+.eyebrow{font-size:11px;letter-spacing:1px;color:#fff;margin:10px 0}
+h1{font-size:clamp(28px,7vw,58px);line-height:1.25;margin:12px 0;color:#fff;text-shadow:4px 4px 0 #684f9d}
+h1 span{color:#ffd0e3}h2{font-size:clamp(20px,5vw,34px);line-height:1.5;color:#fff;text-shadow:3px 3px 0 #684f9d;margin:0 0 10px}
+.subtitle,.hint{font-family:Arial,sans-serif;font-weight:700;line-height:1.6}.subtitle{color:#fff;font-size:16px}.hint{font-size:12px;color:#fff;margin:4px 0 18px}
+.pixel-btn{border:0;background:var(--pink);color:#fff;padding:18px 28px;box-shadow:0 7px 0 #c4497b,0 10px 18px #0003;transition:.12s; margin-top:15px}
+.pixel-btn:hover{transform:translateY(2px);box-shadow:0 5px 0 #c4497b,0 8px 15px #0003}.pixel-btn:active{transform:translateY(6px);box-shadow:0 1px 0 #c4497b}
+.pixel-btn.small{padding:13px 18px;font-size:10px}
+.back{margin-top:16px;background:none;border:0;color:#fff;font-size:9px}
+.pixel-couple{height:150px;width:190px;position:relative;margin-bottom:10px}
+.person{position:absolute;bottom:15px;width:60px;height:105px}.boy{left:28px}.girl{right:28px}
+.head{display:block;width:48px;height:48px;border-radius:10px;background:#8a543c;border:5px solid #34283d;margin:auto;color:transparent;box-shadow:0 5px 0 #34283d}
+.girl .head{background:#2e2530}.body{display:block;width:54px;height:58px;background:#304b73;border:5px solid #34283d;margin:0 auto;border-radius:8px}.girl .body{background:#fff0f5}
+.kiss{position:absolute;top:15px;left:82px;color:#ff6b9e;font-size:25px;animation:float 1.5s infinite}
+.display{background:#ffe9f2;border:4px solid #e65f97;padding:13px 15px;color:#d33d78;margin:8px 0 14px;min-width:150px}
+.keypad{display:grid;grid-template-columns:repeat(3,58px);gap:9px}
+.keypad button{width:58px;height:50px;border:0;border-radius:50%;background:#ffd1e3;color:#c33b74;box-shadow:0 4px 0 #e985aa;font-size:13px}
+.keypad button:active{transform:translateY(3px);box-shadow:0 1px 0 #e985aa}
+.wrong{height:16px;color:#fff;font-size:8px;margin:12px}.gifts{display:flex;gap:clamp(18px,5vw,50px);margin:22px 0 12px;flex-wrap:wrap;justify-content:center}
+.gift{position:relative;width:120px;height:140px;background:none;border:0;transition:.2s}.gift:hover{transform:translateY(-8px) scale(1.04)}
+.box{position:absolute;left:19px;top:35px;width:82px;height:72px;background:#ffd77a;border:6px solid #392238;color:#ff4e8d;font-size:28px;padding-top:14px;box-shadow:7px 7px 0 #b26a8a}
+.lid{position:absolute;left:13px;top:24px;width:94px;height:24px;background:#ff75aa;border:6px solid #392238;z-index:2}.lid:after{content:"";position:absolute;left:38px;top:-6px;width:8px;height:72px;background:#ff4e8d}
+.gift small{position:absolute;bottom:0;left:0;right:0;color:#fff;font-size:8px}
+.pet{font-size:48px;filter:drop-shadow(4px 4px 0 #6d529b);animation:bob 1.6s infinite ease-in-out}.pet-text{color:#fff;font:700 12px Arial}
+.paper{position:relative;width:min(650px,90vw);padding:42px 32px 34px;background:var(--paper);border:7px solid #a88757;box-shadow:10px 12px 0 #5f4a7b;transform:rotate(-1deg);font-family:Georgia,serif;text-align:left;line-height:1.65;font-size:17px}
+.paper:before{content:"";position:absolute;inset:10px;border:2px dashed #b69b6b;pointer-events:none}.paper-pin{position:absolute;top:12px;right:18px;color:#e55a83;font-size:22px}.letter-title{font-family:"Press Start 2P";font-size:14px;color:#805b45}.signature{text-align:right;margin-top:28px}
+.photo-frame{width:min(330px,80vw);aspect-ratio:1/1;background:#ffd1e3;border:12px solid #fff;box-shadow:8px 8px 0 #6a4e9a;display:grid;place-items:center;transform:rotate(2deg)}
+.photo-placeholder{font-family:"Press Start 2P";font-size:9px;color:#c85a83;line-height:1.8}.photo-placeholder span{font-size:50px;display:block;margin-bottom:10px}.photo-placeholder p{margin:0}
+.music-disc{width:110px;height:110px;border-radius:50%;background:#ff78ad;border:9px solid #fff;display:grid;place-items:center;color:#fff;font-size:35px;box-shadow:8px 8px 0 #69509c;animation:spin 6s linear infinite}
+audio{width:min(500px,86vw);margin:18px 0}.music-note{color:#fff;font:12px Arial;max-width:500px;line-height:1.5}
+#particles{position:fixed;inset:0;pointer-events:none;z-index:10}
+.p{position:absolute;animation:rise 1.5s ease-out forwards;font-size:18px}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+@keyframes float{50%{transform:translateY(-12px)}}
+@keyframes bob{50%{transform:translateY(-7px)}}
+@keyframes twinkle{to{opacity:.25;transform:scale(.8)}}
+@keyframes rise{to{transform:translateY(-160px) scale(.5);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media(max-width:520px){.screen{padding-top:5vh}.paper{font-size:15px;padding:36px 22px}.gifts{gap:8px}.gift{transform:scale(.9)}.gift:hover{transform:translateY(-6px) scale(.94)}}
